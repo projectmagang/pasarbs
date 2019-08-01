@@ -25,7 +25,9 @@ const routes: Routes = [
   { path: 'homekurir', loadChildren: './pages/homekurir/homekurir.module#HomekurirPageModule' },
   { path: 'hometoko', loadChildren: './pages/hometoko/hometoko.module#HometokoPageModule' },
   { path: 'tambahbarang/:id/:nama/:kategori/:stok/:harga/:kondisi/:satuan/:gambar', loadChildren: './pages/tambahbarang/tambahbarang.module#TambahbarangPageModule' },
-  { path: 'tambahbarang', loadChildren: './pages/tambahbarang/tambahbarang.module#TambahbarangPageModule' },
+  { path: 'tambahbarang', loadChildren: './pages/tambahbarang/tambahbarang.module#TambahbarangPageModule' },  { path: 'checkoutbelanja', loadChildren: './pages/checkoutbelanja/checkoutbelanja.module#CheckoutbelanjaPageModule' },
+  { path: 'tescrud', loadChildren: './pages/tescrud/tescrud.module#TescrudPageModule' },
+
 ];
 
 @NgModule({

@@ -16,6 +16,7 @@
 
   <ion-content padding>
     <ion-list >
+        <ion-searchbar size="small"></ion-searchbar>
       <ion-card *ngFor='let item of barang.databarang'>    
         <ion-grid>
           <ion-row>          
@@ -32,7 +33,7 @@
                   <span class="badge badge-pill badge-success mb-3">Rp.{{item.harga}} </span><br>
                 
                     <ion-button color="primary"  [routerLink]="['/detilbarang', item.id, item.nama, item.kategori, item.stok,item.harga,item.kondisi,item.satuan,item.gambar]"><ion-icon md="md-cart"></ion-icon> &nbsp; keranjang</ion-button>
-                    <ion-button color="secondary" ><ion-icon md="md-pricetags"></ion-icon> &nbsp; Beli</ion-button>
+                    <ion-button color="secondary"routerLink="/checkoutbelanja" ><ion-icon md="md-pricetags"></ion-icon> &nbsp; Beli</ion-button>
                    
   
                  

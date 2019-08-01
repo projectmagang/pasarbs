@@ -4,9 +4,9 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PostProvider {
-server = "http://192.168.1.15/pasarbs/src/app/pages/php/loginregister/";
+server = "http://localhost/php/loginregister/";
 
-//server = "http://192.168.1.15/pasarbs/src/app/pages/php/loginregister/";//
+//server = "http://localhost/php/loginregister/";//
 constructor(public http: Http) {
 
 }

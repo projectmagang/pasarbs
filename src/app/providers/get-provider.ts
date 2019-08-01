@@ -27,16 +27,16 @@ export class GetProvider {
     },err=>{
       console.log(err._body);
     });
-   // await this.http.get("http://192.168.1.12/pasarbs/src/app/pages/php/barang/kategori_buah.php", options)
-    await this.http.get("http://192.168.1.15/pasarbs/src/app/pages/php/barang/kategori_buah.php", options)
+   // await this.http.get("http://localhost/php/barang/kategori_buah.php", options)
+    await this.http.get("http://localhost/php/barang/kategori_buah.php", options)
     .map (res => res.json())
     .subscribe(data=>{
       this.databuah = data;
     },err=>{
       console.log(err._body);
     });    
-    //await this.http.get("http://192.168.1.12/pasarbs/src/app/pages/php/barang/databarang.php", options)
-    await this.http.get("http://192.168.1.15/pasarbs/src/app/pages/php/barang/databarang.php", options)
+    //await this.http.get("http://localhost/php/barang/databarang.php", options)
+    await this.http.get("http://localhost/php/barang/databarang.php", options)
     .map (res => res.json())
     .subscribe(data=>{
       this.databarang = data;
