@@ -3,8 +3,6 @@
       <ion-title></ion-title>
       <ion-buttons slot="start">
   <ion-menu-button></ion-menu-button>
-  <ion-button color="light" fill="outline" routerLink="/registerkurir" routerDirection="forward">Kurir<ion-icon slot="end" name="bicycle"></ion-icon></ion-button>
-  <ion-button color="light" fill="outline" routerLink="/registertoko" routerDirection="forward"  > Toko <ion-icon name="appstore" ></ion-icon></ion-button>
         </ion-buttons>
       <ion-buttons slot="primary">
        
@@ -15,6 +13,19 @@
   </ion-header>
 
   <ion-content padding>
+
+      <ion-button routerLink="/registerkurir" color="success"  > Kurir  <ion-icon slot="start" name="bicycle" ></ion-icon></ion-button>
+      <ion-button color="primary"  routerLink="/registertoko"  > Toko <ion-icon slot="start" name="appstore" ></ion-icon></ion-button>
+
+      <ion-slides> 
+          <ion-slide>
+            <img src="assets/img/produk/2.jpg">
+          </ion-slide>
+          <ion-slide>
+            <img src="assets/img/produk/1.png">
+          </ion-slide>
+          </ion-slides>
+
     <ion-list >
       <ion-card *ngFor='let item of barang.databarang'>    
         <ion-grid>
