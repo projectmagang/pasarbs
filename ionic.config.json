@@ -1,0 +1,14 @@
+{
+  "name": "pasarbs",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://localhost/"
+    }
+  ],
+  "type": "angular"
+}

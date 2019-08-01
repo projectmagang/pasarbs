@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title><ion-text color="light">Tambah Produk</ion-text></ion-title>
+      <ion-buttons slot="start">
+
+    
+          <ion-button routerLink="/hometoko" routerDirection="backward">
+            <ion-icon color="light" slot="end" name="arrow-round-back"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-card>
+      <ion-card-content>
+  
+    <ion-item>
+      <ion-label position="stacked"> Nama Produk </ion-label>
+      <ion-input type="text" [(ngModel)]="nama"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+        <ion-label position="stacked">Kategori Produk</ion-label>
+        <ion-select [(ngModel)]="kategori" placeholder="pilih">
+          <ion-select-option value="Buah">Buah</ion-select-option>
+          <ion-select-option value="Sayur">Sayur</ion-select-option>
+        </ion-select>
+      </ion-item>
+    <ion-item>
+        <ion-label position="stacked"> Stok Produk </ion-label>
+        <ion-textarea [(ngModel)]="stok"></ion-textarea>
+      </ion-item>
+      <ion-item>
+          <ion-label position="stacked"> Harga Produk </ion-label>
+          <ion-textarea [(ngModel)]="harga"></ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked"> Kondisi Produk </ion-label>
+            <ion-textarea [(ngModel)]="kondisi"></ion-textarea>
+          </ion-item>
+          <ion-item>
+              <ion-label position="stacked"> Satuan Produk </ion-label>
+              <ion-textarea [(ngModel)]="satuan"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-label position="stacked"> Gambar Produk </ion-label>
+                <ion-textarea [(ngModel)]="gambar"></ion-textarea>
+              </ion-item>
+              </ion-card-content>
+              <ion-button expand="block" padding color="primary" *ngIf="!id" (click)="tambahproduk()" fill="outline">Simpan Produk</ion-button>
+              <ion-button expand="block" padding color="tertiary" *ngIf="id>=1" (click)="updateproduk()" fill="outline">Update</ion-button>
+            <br>
+            </ion-card>
+  
+    
+  
+  </ion-content>
+  

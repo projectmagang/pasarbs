@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar color="primary">
+       
+      <ion-title>Daftar Kurir{{id_kurir}}</ion-title>
+      <ion-buttons slot="start">
+
+    
+          <ion-button routerLink="/home" routerDirection="backward">
+            <ion-icon slot="end" name="arrow-round-back"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+    <ion-content padding>
+      <ion-card>
+        <ion-card-content>
+            <h2><b>Daftarkan Akun Kurir Anda </b></h2>
+            <br>
+        <ion-infinite-scroll>
+      
+        
+  
+      <ion-list>
+    
+        <ion-item>
+          <ion-label position="stacked">Nama</ion-label>
+      <ion-input type="text" [(ngModel)]="nama"></ion-input>
+    </ion-item>            
+  
+                  <ion-item>
+                    <ion-label position="stacked">Kendaraan</ion-label>
+                    <ion-select [(ngModel)]="kendaraan" placeholder="pilih">
+                      <ion-select-option value="motor">Sepeda Motor</ion-select-option>
+                      <ion-select-option value="mobil">Mobil</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label position="stacked">Nomor Kendaraan</ion-label>
+                        <ion-input type="text"[(ngModel)]="nopol"></ion-input>
+                      </ion-item>
+                  
+    </ion-list>
+    <div>
+    <ion-button  expand="block" color="primary" (click)="prosesregisterkurir()">Daftarkan akun</ion-button>
+  </div> 
+  
+        
+      </ion-infinite-scroll>
+      </ion-card-content>
+      </ion-card>
+  </ion-content>
+  

@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-title>Daftar Toko
+    </ion-title>
+
+    <ion-buttons slot="start">
+
+    
+        <ion-button routerLink="/home" routerDirection="backward">
+          <ion-icon slot="end" name="arrow-round-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+        <h2><b>Daftarkan Akun Toko Anda  </b></h2>
+        <br>
+  <ion-list>   
+
+      <ion-item>
+        <ion-label position="stacked">Nama Toko</ion-label>
+        <ion-input type="text" [(ngModel)]="nama_toko"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Alamat Toko</ion-label>
+        <ion-input type="text" [(ngModel)]="alamat_toko"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Kota</ion-label>
+        <ion-input type="text" [(ngModel)]="kota"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Kode pos</ion-label>
+        <ion-input type="text" [(ngModel)]="kode_pos"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Kontak</ion-label>
+        <ion-input type="text" [(ngModel)]="kontak"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Keterangan Toko</ion-label>
+        <ion-input type="text" [(ngModel)]="keterangan"></ion-input>
+      </ion-item>
+
+  </ion-list>
+
+  <div>
+      <ion-button  expand="block" color="primary" (click)="prosesregistertoko()">Daftarkan akun</ion-button>
+    </div> 
+  </ion-card-content>
+  </ion-card>
+
+</ion-content>

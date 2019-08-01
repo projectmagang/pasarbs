@@ -1,0 +1,24 @@
+<ion-app>
+  <ion-split-pane >
+
+    <ion-menu side="start" menuId="first">
+      <ion-header color="primary">
+        <ion-toolbar color="primary">
+          <ion-title><img src="assets/icon/daun.png" style="width:24%;">Yuk Beli</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content color="primary">
+        <ion-list color="primary">
+          <ion-item color="primary" [routerLink]="'/home'" routerDirection="backward"><ion-icon slot="start" ios="ios-home" md="md-home"></ion-icon>Dashboard</ion-item>
+          <ion-item color="primary" routerLink="/kategori" routerDirection="root">  <ion-icon slot="start" ios="ios-list" md="md-list"></ion-icon>
+            Kategori</ion-item>
+          <ion-item color="primary" routerLink="/keranjang" routerDirection="backward">  <ion-icon slot="start" ios="ios-cart" md="md-cart"></ion-icon>
+            Keranjang</ion-item>
+          <ion-item color="primary" routerLink="/checkout" routerDirection="backward">  <ion-icon slot="start" ios="ios-cash" md="md-cash"></ion-icon>
+            Checkout</ion-item>
+ </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

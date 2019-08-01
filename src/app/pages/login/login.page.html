@@ -1,0 +1,35 @@
+<ion-header>
+	<ion-toolbar color="primary">
+			<ion-title text-center>Login</ion-title>
+			
+	</ion-toolbar> 
+	  
+	   </ion-header>
+
+<ion-content>
+	<ion-card>
+		
+		<ion-card-content>
+				<h2><b>Masuk Ke Akun Anda</b></h2>
+				<br>
+			<ion-list>
+
+	  <ion-item>
+	    <ion-label position="floating">Username</ion-label>
+	    <ion-input type="text" [(ngModel)]="username"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label position="floating">Password</ion-label>
+	    <ion-input type="password" [(ngModel)]="password"></ion-input>
+	  </ion-item>
+
+	</ion-list>
+
+
+			<ion-button expand="block" padding color="primary" (click)="prosesLogin()">Masuk</ion-button>
+			<ion-button expand="block" padding color="primary" fill="outline" (click)="formRegister()">Silahkan Daftar</ion-button>
+		<br>
+		  </ion-card-content>
+		  </ion-card>
+</ion-content>

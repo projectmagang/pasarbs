@@ -1,0 +1,25 @@
+page-modal2 {
+
+    ion-card{
+        border-radius: 5px !important;
+    }
+
+    ion-card-content > img{
+        border-radius: 10px !important;
+    }   
+    
+    .tap{
+        padding: 0px !important;
+        margin: 0px !important;        
+    }
+
+    ion-label{
+        padding: 3px !important;
+        margin: 0px !important;
+    }
+
+    .plus{
+        border-color: white !important;
+        color: black !important;
+    }
+}

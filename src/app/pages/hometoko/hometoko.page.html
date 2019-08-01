@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title><ion-text color="light">Produk Anda</ion-text></ion-title>
+    <ion-buttons slot="primary">
+    	<ion-button color="light" fill="outline" (click)="tambahbarang()">
+    		Tambah
+    		<ion-icon slot="end" name="add"></ion-icon>
+    	</ion-button>
+    	
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let toko of toko2">
+		<ion-item-sliding >
+		    <ion-item-options side="start">
+		      <ion-item-option color="danger" (click)="hapusbarang(toko.id)">Delete</ion-item-option>
+		    </ion-item-options>
+
+		    <ion-item>
+          <ion-thumbnail slot="start"> <img src="assets/img/produk/{{toko.gambar}}"></ion-thumbnail>
+		      <ion-label>{{toko.nama}}</ion-label>
+		    </ion-item>
+
+		    <ion-item-options side="end">
+		      <ion-item-option (click)="updatebarang(toko.id,toko.nama,toko.kategori,toko.stok,toko.harga,toko.kondisi,toko.satuan,toko.gambar)">Update</ion-item-option>
+
+		    </ion-item-options>
+		</ion-item-sliding>
+
+
+</ion-card>
+</ion-content>

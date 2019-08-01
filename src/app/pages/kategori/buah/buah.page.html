@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>buah</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-card *ngFor='let item of buah.databuah'>    
+      <ion-grid>
+        <ion-row>          
+          <ion-col col-5> 
+            <ion-card-content>
+              <img src="assets/img/produk/{{item.gambar}}">              
+            </ion-card-content>
+          </ion-col>
+          <ion-col col-7>
+            <ion-card-content>
+              <div >
+                <h5 class="card-title mb-1">{{item.nama}}</h5>
+                <small>Stok : {{item.stok}} </small><br>
+                <span class="badge badge-pill badge-success mb-3">Rp.{{item.harga}} </span><br>
+              
+                <ion-button color="primary"  [routerLink]="['/detilbarang', item.id, item.nama, item.kategori, item.stok,item.harga,item.kondisi,item.satuan,item.gambar]"><ion-icon md="md-cart"></ion-icon> &nbsp; keranjang</ion-button>
+                <ion-button color="secondary" ><ion-icon md="md-pricetags"></ion-icon> &nbsp; Beli</ion-button>
+                 
+
+               
+
+              </div>         
+            </ion-card-content>                    
+          </ion-col>          
+        </ion-row>        
+      </ion-grid>      
+    </ion-card>
+  </ion-list>  
+</ion-content>

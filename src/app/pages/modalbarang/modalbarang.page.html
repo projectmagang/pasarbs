@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detil Barang</ion-title>
+  </ion-toolbar>
+  </ion-header>
+
+  
+<ion-content>
+  <ion-card>
+    <ion-card-header color="blue">
+      Produk {{kategori}}
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+          <ion-item class="item-avatar">
+              <img src="assets/img/produk/{{gambar}}">
+            </ion-item>
+          <ion-item>
+            <ion-label>Nama Produk</ion-label>
+            <ion-note slot="end">{{nama}}</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Kondisi Produk</ion-label>
+            <ion-note slot="end">{{kondisi}}</ion-note>
+          </ion-item>
+
+          <ion-item>
+              <ion-label>Stok Produk</ion-label>
+              <ion-note slot="end">{{stok}}</ion-note>
+            </ion-item>
+            <ion-item>
+                <ion-label>Satuan Produk</ion-label>
+                <ion-note slot="end">{{satuan}}</ion-note>
+              </ion-item>
+
+            <ion-item>
+                <ion-label>Harga Produk</ion-label>
+                <ion-note slot="end">{{harga}}</ion-note>
+              </ion-item>
+
+           
+     
+
+        </ion-list>
+        <ion-item slot="end">
+           
+            <ion-button color="primary" ><ion-icon md="md-cart"></ion-icon> &nbsp; Tambah</ion-button>
+            <ion-button color="secondary" ><ion-icon md="md-pricetags"></ion-icon> &nbsp; Beli</ion-button>
+         </ion-item>
+      </ion-card-content>
+  </ion-card>
+
+</ion-content>
