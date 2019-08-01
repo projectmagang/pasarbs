@@ -146,16 +146,17 @@
     //------------------------------------------------------------------------------------
   // Tabel barang // Update 
 //--------------------------------------------------------------------------------------
-   elseif($postjson['aksi']=='updateproduk'){
+
+  elseif($postjson['aksi']=='updateproduk'){
   	$query = mysqli_query($mysqli, "UPDATE barang SET 
-  		nama = '$postjson[nama]',
-  		id_toko = 'T-001',
+  	nama = '$postjson[nama]',
 		kategori = '$postjson[kategori]',
 		stok = '$postjson[stok]',
 		harga = '$postjson[harga]',
 		kondisi = '$postjson[kondisi]',
 		satuan = '$postjson[satuan]',
-		gambar = '$postjson[gambar]' WHERE id='$postjson[id]'");
+		gambar = '$postjson[gambar]',
+    id='$postjson[id]' WHERE id='$postjson[id]'");
 
   	if($query) $result = json_encode(array('success'=>true, 'result'=>'success'));
   	else $result = json_encode(array('success'=>false, 'result'=>'error'));

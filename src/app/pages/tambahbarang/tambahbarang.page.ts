@@ -71,7 +71,7 @@ export class TambahbarangPage implements OnInit {
   		};
 
   		this.postPvdr.postData(body, 'proses-api.php').subscribe(data => {
-  			this.router.navigate(['/customer']);
+  			this.router.navigate(['/hometoko']);
   			console.log('OK');
   		});
   	});

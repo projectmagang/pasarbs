@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { PostProvider } from '../../providers/post-provider';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -10,7 +11,7 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./registertoko.page.scss'],
 })
 export class RegistertokoPage implements OnInit {
-  id_toko : string = "";
+  id_toko : any;
   nama_toko: string = "";
   alamat_toko: string = "";
   kota: string = "";
@@ -22,30 +23,42 @@ export class RegistertokoPage implements OnInit {
   random : any;
   username : string ="";
   user: any;
+  id_toko2: any;
+
 
   constructor(
     private router: Router,
     private postPvdr: PostProvider,
     private storage: Storage,
+    private actRoute: ActivatedRoute,
     public toastCtrl: ToastController
   ) { 
-    this.random =Math.floor(1000+Math.random()*9000);
-    this.id_toko = this.random;
+   
   }
 
   ngOnInit() {
+    this.actRoute.params.subscribe((data: any) =>{
+  		this.id_toko2 = data.id_toko;
+  	
+  		console.log(data);
+  	});
   }
-
-  ionViewWillEnter(){
-    this.storage.get('session_storage').then((res)=>{
-this.user = res;
-this.username = this.user.username;
-this.nik = this.user.nik;
-    })
+  ionViewWillEnter() {
+    this.storage.get('session_storage').then((res) => {
+      if(res == null){
+        this.router.navigate(['/login']);
+      }
+      this.user = res;
+      this.username = this.user.username;
+      this.nik = this.user.nik;
+      console.log(res);
+    });
   }
 
 
   async prosesregistertoko() {
+    this.random =Math.floor(1000+Math.random()*9000);
+    this.id_toko = this.random;
     // validation done
 
     if (this.nama_toko == "") {
@@ -109,7 +122,8 @@ this.nik = this.user.nik;
       this.postPvdr.postData(body, 'proses-api.php').subscribe(async data => {
         var alertpesan = data.msg;
         if (data.success) {
-          this.router.navigate(['/home']);
+          
+          this.router.navigate(['/hometoko']);
           const toast = await this.toastCtrl.create({
             message: 'Daftar berhasil',
             duration: 3000
@@ -125,6 +139,7 @@ this.nik = this.user.nik;
       });
 
     }
+    
 
   }
 

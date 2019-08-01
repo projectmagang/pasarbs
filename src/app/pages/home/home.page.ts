@@ -7,7 +7,6 @@ import { Storage } from '@ionic/storage';
 import { GetProvider } from 'src/app/providers/get-provider';
 import { Router, NavigationExtras} from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import { ModalbarangPage } from '../modalbarang/modalbarang.page';
 
 
 @Component({
