@@ -21,6 +21,7 @@
     if($check>0){
       $data = mysqli_fetch_array($query);
       $datauser = array(
+        'role_id' =>$data['role_id'],
 	  'nik' =>$data['nik'],
         'username' => $data['username'],
         'password' => $data['password']

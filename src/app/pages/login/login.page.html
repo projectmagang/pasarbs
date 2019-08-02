@@ -1,43 +1,87 @@
-<ion-slides pager="true">
+
+<ion-content>
+	<ion-slides pager="true">
 		<ion-slide class="step-one">
-				<ion-card>
+			<ion-card color="light">
 		
-						<ion-card-content>
-								<h2><b>Masuk Ke Akun Anda</b></h2>
-								<br>
-							<ion-list>
-				
-					  <ion-item>
-						<ion-label position="floating">Username</ion-label>
-						<ion-input type="text" [(ngModel)]="username"></ion-input>
-					  </ion-item>
-				
-					  <ion-item>
-						<ion-label position="floating">Password</ion-label>
-						<ion-input type="password" [(ngModel)]="password"></ion-input>
-					  </ion-item>
-				
-					</ion-list>
-				
-				
-							<ion-button expand="block" padding color="primary" (click)="prosesLogin()">Masuk</ion-button>
-							<ion-button expand="block" padding color="primary" fill="outline" (click)="formRegister()">Silahkan Daftar</ion-button>
+				<ion-card-content>
+						<h2><b>Masuk Ke Akun Anda</b></h2>
 						<br>
-						  </ion-card-content>
-						  </ion-card>
+					<ion-list>
+		
+			  <ion-item>
+				<ion-label position="floating">Username</ion-label>
+				<ion-input type="text" [(ngModel)]="username"></ion-input>
+			  </ion-item>
+		
+			  <ion-item>
+				<ion-label position="floating">Password</ion-label>
+				<ion-input type="password" [(ngModel)]="password"></ion-input>
+			  </ion-item>
+		
+			</ion-list>
+		
+		
+					<ion-button expand="block" padding color="primary" (click)="prosesLogin()">Masuk</ion-button>
+					<ion-button expand="block" padding color="primary" fill="outline" (click)="formRegister()">Silahkan Daftar</ion-button>
+				<br>
+				  </ion-card-content>
+				  </ion-card>
 		</ion-slide>
 	
 		<ion-slide class="step-two">
-			<ion-img src="/assets/slides/step2.svg"></ion-img>
-			<h1>Heading</h1>
-			<p>Text</p>
+			<ion-card color="light">
+		
+				<ion-card-content>
+						<h2><b>Masuk Ke Akun Kurir Anda</b></h2>
+						<br>
+					<ion-list>
+		
+			  <ion-item>
+				<ion-label position="floating">Username</ion-label>
+				<ion-input type="text" [(ngModel)]="username"></ion-input>
+			  </ion-item>
+		
+			  <ion-item>
+				<ion-label position="floating">Password</ion-label>
+				<ion-input type="password" [(ngModel)]="password"></ion-input>
+			  </ion-item>
+		
+			</ion-list>
+		
+		
+					<ion-button expand="block" padding color="success" (click)="prosesLogin()">Masuk</ion-button>
+				
+				<br>
+				  </ion-card-content>
+				  </ion-card>
 		</ion-slide>
 	
 		<ion-slide class="step-three">
-			<ion-img src="/assets/slides/step3.svg"></ion-img>
-			<h1>Heading</h1>
-			<p>Text</p>
-	
-			<ion-button (click)="finish()">FINISH TUTORIAL!</ion-button>
+		<ion-card color="light">
+		
+				<ion-card-content>
+						<h2><b>Masuk Ke Akun Shop Anda</b></h2>
+						<br>
+					<ion-list>
+		
+			  <ion-item>
+				<ion-label position="floating">Username</ion-label>
+				<ion-input type="text" [(ngModel)]="username"></ion-input>
+			  </ion-item>
+		
+			  <ion-item>
+				<ion-label position="floating">Password</ion-label>
+				<ion-input type="password" [(ngModel)]="password"></ion-input>
+			  </ion-item>
+		
+			</ion-list>
+		
+		
+					<ion-button expand="block" padding color="dark" (click)="prosesLoginshop()">Masuk</ion-button>
+				<br>
+				  </ion-card-content>
+				  </ion-card>
 		</ion-slide>
 	</ion-slides>
+</ion-content>
