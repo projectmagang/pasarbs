@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tescrud.page.scss'],
 })
 export class TescrudPage implements OnInit {
-
+z
   constructor() { }
 
   ngOnInit() {

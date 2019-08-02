@@ -13,7 +13,7 @@ export class RegisterPage implements OnInit {
   username: string = "";
   password: string = "";
   nik: string = "";
-  nama: string = "";
+  nama_user: string = "";
   alamat: string = "";
   kota: string = "";
   kode_pos: string = "";
@@ -47,7 +47,7 @@ export class RegisterPage implements OnInit {
         duration: 3000
       });
       toast.present();
-  }else if(this.nama==""){
+  }else if(this.nama_user==""){
     const toast = await this.toastCtrl.create({
       message: 'Nama Harus Diisi',
       duration: 3000
@@ -120,7 +120,7 @@ else if(this.password==""){
         username: this.username,
         password: this.password,
         nik: this.nik,
-        nama: this.nama,
+        nama_user: this.nama_user,
         alamat: this.alamat,
         kota: this.kota,
         kode_pos: this.kode_pos,

@@ -27,6 +27,9 @@ const routes: Routes = [
   { path: 'tambahbarang/:id/:nama/:kategori/:stok/:harga/:kondisi/:satuan/:gambar', loadChildren: './pages/tambahbarang/tambahbarang.module#TambahbarangPageModule' },
   { path: 'tambahbarang', loadChildren: './pages/tambahbarang/tambahbarang.module#TambahbarangPageModule' },  { path: 'checkoutbelanja', loadChildren: './pages/checkoutbelanja/checkoutbelanja.module#CheckoutbelanjaPageModule' },
   { path: 'tescrud', loadChildren: './pages/tescrud/tescrud.module#TescrudPageModule' },
+  { path: 'tes', loadChildren: './pages/tes/tes.module#TesPageModule' },
+  { path: 'card', loadChildren: './pages/card/card.module#CardPageModule' },
+  { path: 'card2', loadChildren: './pages/card2/card2.module#Card2PageModule' },
 
 ];
 

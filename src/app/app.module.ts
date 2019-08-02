@@ -16,6 +16,11 @@ import { IonicStorageModule } from '@ionic/storage';
 import { PostProvider } from './providers/post-provider';
 import { GetProvider } from 'src/app/providers/get-provider';
 
+import { Camera } from '@ionic-native/Camera/ngx';
+import { File } from '@ionic-native/File/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { FilePath } from '@ionic-native/file-path/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,6 +40,10 @@ import { GetProvider } from 'src/app/providers/get-provider';
     StatusBar,
     SplashScreen,
     PostProvider,
+    Camera,
+    File,
+    WebView,
+    FilePath,
     GetProvider,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 
