@@ -15,6 +15,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { IonicStorageModule } from '@ionic/storage';
 import { PostProvider } from './providers/post-provider';
 import { GetProvider } from 'src/app/providers/get-provider';
+import { Camera } from '@ionic-native/Camera/ngx';
+import { File } from '@ionic-native/File/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { FilePath } from '@ionic-native/file-path/ngx';
 
 
 @NgModule({
@@ -37,7 +41,10 @@ import { GetProvider } from 'src/app/providers/get-provider';
     PostProvider,
     GetProvider,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-
+    Camera,
+    File,
+    WebView,
+    FilePath
   ],
   bootstrap: [AppComponent]
 })

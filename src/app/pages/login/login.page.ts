@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { PostProvider } from '../../providers/post-provider';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -17,13 +17,18 @@ export class LoginPage implements OnInit {
   role_id: any;
 
   constructor(
-  	private router: Router,
+    private router: Router,
+    private actRoute: ActivatedRoute,
   	private postPvdr: PostProvider,
   	private storage: Storage,
   	public toastCtrl: ToastController
   ) { }
 
   ngOnInit() {
+    this.actRoute.params.subscribe((data: any) =>{
+    this.role_id =data.role_id;
+    console.log(data);
+    });
   }
 
   async prosesLogin(){
@@ -69,7 +74,6 @@ export class LoginPage implements OnInit {
   async prosesLoginshop(){
     if(this.username != "" && this.username != ""){
       let body = {
-        role_id : this.role_id,
         username: this.username,
         password: this.password,
         nik: this.nik,
@@ -82,6 +86,56 @@ export class LoginPage implements OnInit {
           if(data.success){
             this.storage.set('session_storage', data.result);
             this.router.navigate(['/hometoko']);
+            const toast = await this.toastCtrl.create({
+          message: 'Login Berhasil...',
+          duration: 2000
+        });
+        toast.present();
+        this.username = "";
+        this.password = "";
+            console.log(data);
+          }else{
+            const toast = await this.toastCtrl.create({
+          message: alertpesan,
+          duration: 2000
+        });
+          toast.present();
+          }
+        });
+      }else{
+        const toast = await this.toastCtrl.create({
+      message: 'Username Dan Password Salah...',
+      duration: 2000
+      });
+      toast.present();
+      }
+      
+
+      
+
+    }else{
+      const toast = await this.toastCtrl.create({
+		message: 'Username Dan Password Salah...',
+		duration: 2000
+	  });
+	  toast.present();
+    }
+  }
+  async prosesLoginkurir(){
+    if(this.username != "" && this.username != ""){
+      let body = {
+        username: this.username,
+        password: this.password,
+        nik: this.nik,
+        aksi: 'login'
+      };
+     
+      if(this.role_id = 1){
+        this.postPvdr.postData(body, 'proses-api.php').subscribe(async data =>{
+          var alertpesan = data.msg;
+          if(data.success){
+            this.storage.set('session_storage', data.result);
+            this.router.navigate(['/homekurir']);
             const toast = await this.toastCtrl.create({
           message: 'Login Berhasil...',
           duration: 2000

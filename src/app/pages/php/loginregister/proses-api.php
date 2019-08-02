@@ -42,7 +42,7 @@
       username = '$postjson[username]',
       password = '$postjson[password]',
 	  nik = '$postjson[nik]',
-	  nama = '$postjson[nama]',
+	  nama_user = '$postjson[nama_user]',
 	  alamat = '$postjson[alamat]',
 	  kota = '$postjson[kota]',
 	  kode_pos = '$postjson[kode_pos]',

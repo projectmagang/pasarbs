@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'hometoko', loadChildren: './pages/hometoko/hometoko.module#HometokoPageModule' },
   { path: 'tambahbarang/:id/:nama/:kategori/:stok/:harga/:kondisi/:satuan/:gambar', loadChildren: './pages/tambahbarang/tambahbarang.module#TambahbarangPageModule' },
   { path: 'tambahbarang', loadChildren: './pages/tambahbarang/tambahbarang.module#TambahbarangPageModule' },
+  { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
 ];
 
 @NgModule({

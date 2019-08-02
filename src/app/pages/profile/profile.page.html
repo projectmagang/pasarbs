@@ -1,0 +1,78 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title><ion-text color="light">Profile</ion-text></ion-title>
+      <ion-buttons slot="start">
+
+    
+          <ion-button routerLink="/home" routerDirection="backward">
+            <ion-icon color="light" slot="end" name="arrow-round-back"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-card>
+      <ion-card-content>
+  
+    <ion-item>
+      <ion-label position="stacked"> Nama </ion-label>
+      <ion-input type="text" [(ngModel)]="nama_user"></ion-input>
+    </ion-item>
+  
+    
+    <ion-item>
+        <ion-label position="stacked"> alamat </ion-label>
+        <ion-textarea [(ngModel)]="alamat"></ion-textarea>
+      </ion-item>
+ 
+      <ion-item>
+          <ion-label position="stacked"> Kota </ion-label>
+          <ion-textarea [(ngModel)]="kota"></ion-textarea>
+        </ion-item>
+   
+          <ion-item>
+              <ion-label position="stacked"> Kode Pos </ion-label>
+              <ion-textarea [(ngModel)]="kode_pos"></ion-textarea>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="stacked">Jenis Kelamin</ion-label>
+              <ion-select [(ngModel)]="jenis_kelamin" placeholder="pilih">
+                <ion-select-option value="Laki-Laki">Laki-Laki</ion-select-option>
+                <ion-select-option value="Perempuan">Perempuan</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Tempat Lahir</ion-label>
+              <ion-input type="text"[(ngModel)]="tempat_lahir"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Tanggal Lahir</ion-label>
+              <ion-datetime displayFormat="MM/DD/YYYY" min="1994-03-14" max="2012-12-09" value="2002-09-23T15:03:46.789"[(ngModel)]="tanggal_lahir"></ion-datetime>
+            </ion-item>
+                <ion-item>
+                  <ion-label position="stacked">Nomor HP</ion-label>
+                    <ion-input type="number"[(ngModel)]="kontak"></ion-input>
+                  </ion-item>
+
+                   
+<ion-item>
+<ion-label position="stacked">Password</ion-label>
+<ion-input type="Password"[(ngModel)]="password"></ion-input>
+</ion-item>
+
+<ion-item>
+<ion-label position="stacked">Confirm Password</ion-label>
+<ion-input type="Password"[(ngModel)]="confirm_password"></ion-input>
+</ion-item>
+
+              </ion-card-content>
+              <ion-button expand="block" padding color="primary"  (click)="prosesUpdate()" fill="outline">Update Profile</ion-button>
+            <br>
+            </ion-card>
+  
+    
+  
+  </ion-content>
+  
