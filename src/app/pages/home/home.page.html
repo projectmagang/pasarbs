@@ -6,9 +6,15 @@
         </ion-buttons>
         <ion-button color="success"  routerLink="/registerkurir" routerDirection="forward"><ion-text color="light">Kurir</ion-text><ion-icon color="light"slot="end" name="bicycle"></ion-icon></ion-button>
         <ion-button color="dark"  routerLink="/registertoko" routerDirection="forward"  > Toko <ion-icon name="appstore" ></ion-icon></ion-button>
-      <ion-buttons slot="primary">
+      <ion-buttons slot="end">
        
         <ion-button color="light" fill="outline" (click)="prosesLogout()" routerDirection="root"><ion-icon slot="end" name="log-out"></ion-icon></ion-button>
+      </ion-buttons>
+      <ion-buttons slot="primary">
+       
+        <ion-button  color="light" fill="outline" (click)="bukaKeranjang()" routerDirection="root"><ion-badge *ngIf="cart.length > 0" >{{cart.length}}</ion-badge>
+        <ion-icon name="cart" slot="icon-only"></ion-icon>
+        </ion-button>
       </ion-buttons>
       
     </ion-toolbar>
@@ -36,7 +42,7 @@
                   <span class="badge badge-pill badge-success mb-3">Rp.{{item.harga}} </span><br>
                 
                     <ion-button color="primary"  [routerLink]="['/detilbarang', item.id, item.nama, item.kategori, item.stok,item.harga,item.kondisi,item.satuan,item.gambar]"><ion-icon md="md-cart"></ion-icon> &nbsp; keranjang</ion-button>
-                    <ion-button color="secondary" ><ion-icon md="md-pricetags"></ion-icon> &nbsp; Beli</ion-button>
+                    <ion-button color="secondary" (click)="addToCart(product)"><ion-icon md="md-pricetags"></ion-icon> &nbsp; Beli</ion-button>
                    
   
                  

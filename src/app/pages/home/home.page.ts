@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { PostProvider } from 'src/app/providers/post-provider';
@@ -14,7 +14,9 @@ import { ModalController } from '@ionic/angular';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
+  cart = [];
+  unit = [];
   username: any;
   user: any;
 public items: any;
@@ -26,9 +28,15 @@ public items: any;
               private modalController: ModalController,
               public toastCtrl: ToastController
     ) {
-      this.barang.loadData();
+
       console.log();
   }
+  ngOnInit() {
+    this.barang.loadData();
+    this.items = this.barang.getProducts();
+    this.cart = this.barang.getCart();
+  }
+  
 
     ionViewWillEnter() {
       this.storage.get('session_storage').then((res) => {
@@ -49,6 +57,13 @@ public items: any;
   });
    toast.present();
  }
+ addToCart(product) {
+  this.barang.addProduct(product);
+}
+
+openCart() {
+  this.router.navigate(['keranjang']);
+}
 
 
 
