@@ -16,12 +16,14 @@ total = 0;
   constructor(    
     private router: Router,
     private barang: GetProvider,
-    private storage: Storage) { }
+    private storage: Storage) {
+      this.barang.loadData();
+     }
 
     ngOnInit() {
-      let items = this.barang.getCart();
+      let barang = this.barang.databarang;
       let selected = {};
-      for (let obj of items) {
+      for (let obj of barang) {
         if (selected[obj.id]) {
           selected[obj.id].count++;
         } else {
@@ -29,7 +31,7 @@ total = 0;
         }
       }
       this.selectedItems = Object.keys(selected).map(key => selected[key])
-      this.total = this.selectedItems.reduce((a, b) => a + (b.count * b.price), 0);
+      this.total = this.selectedItems.reduce((a, b) => a + (b.count * b.harga), 0);
 
     }
   ionViewWillEnter() {

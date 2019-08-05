@@ -20,7 +20,7 @@ export class GetProvider {
     let headers = new Headers({'Content-Type' : type});
     let options = new RequestOptions({ headers:headers});
     // await this.http.get("http://192.168.1.12/pasarbs/src/app/pages/php/barang/kategori_sayur.php", options)
-    await this.http.get("http://192.168.1.11/pasarbs/src/app/pages/php/barang/kategori_sayur.php", options)
+    await this.http.get("http://192.168.1.16/pasarbs/src/app/pages/php/barang/kategori_sayur.php", options)
     .map (res => res.json())
     .subscribe(data=>{
       this.datasayur = data;
@@ -28,7 +28,7 @@ export class GetProvider {
       console.log(err._body);
     });
    // await this.http.get("http://192.168.1.12/pasarbs/src/app/pages/php/barang/kategori_buah.php", options)
-    await this.http.get("http://192.168.1.11/pasarbs/src/app/pages/php/barang/kategori_buah.php", options)
+    await this.http.get("http://192.168.1.16/pasarbs/src/app/pages/php/barang/kategori_buah.php", options)
     .map (res => res.json())
     .subscribe(data=>{
       this.databuah = data;
@@ -36,7 +36,7 @@ export class GetProvider {
       console.log(err._body);
     });    
     //await this.http.get("http://192.168.1.12/pasarbs/src/app/pages/php/barang/databarang.php", options)
-    await this.http.get("http://192.168.1.11/pasarbs/src/app/pages/php/barang/databarang.php", options)
+    await this.http.get("http://192.168.1.16/pasarbs/src/app/pages/php/barang/databarang.php", options)
     .map (res => res.json())
     .subscribe(data=>{
       this.databarang = data;
@@ -50,7 +50,7 @@ export class GetProvider {
  
    
     getProducts() {
-      return this.databarang;
+     return this.databarang;
     }
    
     getCart() {

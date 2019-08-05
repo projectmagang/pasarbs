@@ -24,6 +24,14 @@
         'role_id' =>$data['role_id'],
 	  'nik' =>$data['nik'],
         'username' => $data['username'],
+        'nama_user' =>$data['nama_user'],
+        'alamat' => $data['alamat'],
+        'kota' => $data['kota'],
+        'kode_pos' => $data['kode_pos'],
+        'jenis_kelamin' => $data['jenis_kelamin'],
+        'tempat_lahir' => $data['tempat_lahir'],
+        'tanggal_lahir' => $data['tanggal_lahir'],
+        'kontak' => $data['kontak'],
         'password' => $data['password']
       );
 	  $result = json_encode(array('success'=>true, 'result'=>$datauser));
@@ -157,6 +165,25 @@
 		kondisi = '$postjson[kondisi]',
 		satuan = '$postjson[satuan]',
 		gambar = '$postjson[gambar]',
+    id='$postjson[id]' WHERE id='$postjson[id]'");
+
+  	if($query) $result = json_encode(array('success'=>true, 'result'=>'success'));
+  	else $result = json_encode(array('success'=>false, 'result'=>'error'));
+
+  	echo $result;
+
+  }
+  elseif($postjson['aksi']=='updateprofile'){
+  	$query = mysqli_query($mysqli, "UPDATE user SET 
+  	nama_user = '$postjson[nama_user]',
+		alamat = '$postjson[alamat]',
+		kota = '$postjson[kota]',
+		kode_pos = '$postjson[kode_pos]',
+		jenis_kelamin = '$postjson[jenis_kelamin]',
+		tempat_lahir = '$postjson[tempat_lahir]',
+		tanggal_lahir = '$postjson[tanggal_lahir]',
+    kontak = '$postjson[kontak]',
+    password = '$postjson[password]',
     id='$postjson[id]' WHERE id='$postjson[id]'");
 
   	if($query) $result = json_encode(array('success'=>true, 'result'=>'success'));

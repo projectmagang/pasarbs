@@ -16,10 +16,21 @@ import { ModalController } from '@ionic/angular';
 })
 export class HomePage implements OnInit{
   cart = [];
-  unit = [];
+  items = [];
   username: any;
   user: any;
-public items: any;
+  nama_user: any;
+  alamat: any;
+  kota: any;
+  kode_pos: any;
+  jenis_kelamin: any;
+  confirm_password: any;
+  tempat_lahir: any;
+  tanggal_lahir: any;
+  kontak: any;
+  password: any;
+  nik: any;
+
   constructor(private http: HttpClient,
               private router: Router,
   	           private postPvdr: PostProvider,
@@ -45,6 +56,18 @@ public items: any;
         }
         this.user = res;
         this.username = this.user.username;
+        this.nik = this.user.nik;
+        this.nama_user = this.user.nama_user;
+        this.alamat = this.user.alamat; 
+        this.kota = this.user.kota;
+        this.kode_pos =this.user.kode_pos;
+        this.jenis_kelamin = this.user.jenis_kelamin;
+        this.tempat_lahir = this.user.tempat_lahir;
+      this.tanggal_lahir = this.user.tanggal_lahir;
+      this.kontak = this.user.kontak;
+      this.password= this.user.password;
+      this.confirm_password = this.user.password;
+
         console.log(res);
       });
     }
@@ -65,6 +88,9 @@ openCart() {
   this.router.navigate(['keranjang']);
 }
 
+updateprofile(nik,nama_user,alamat,kota,kode_pos,jenis_kelamin,tempat_lahir,tanggal_lahir,kontak,password,confirm_password){
+  this.router.navigate(['/profile/' + nik + '/' + nama_user + '/' + alamat + '/' + kota + '/'+ kode_pos + '/'+jenis_kelamin+'/'+tempat_lahir+'/'+tanggal_lahir+'/'+kontak+'/'+password+'/'+confirm_password]);
+}
 
 
 }

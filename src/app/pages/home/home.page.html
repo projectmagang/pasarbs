@@ -4,15 +4,17 @@
       <ion-buttons slot="start">
   <ion-menu-button></ion-menu-button>
         </ion-buttons>
+      <ion-buttons>
         <ion-button color="success"  routerLink="/registerkurir" routerDirection="forward"><ion-text color="light">Kurir</ion-text><ion-icon color="light"slot="end" name="bicycle"></ion-icon></ion-button>
         <ion-button color="dark"  routerLink="/registertoko" routerDirection="forward"  > Toko <ion-icon name="appstore" ></ion-icon></ion-button>
-      <ion-buttons slot="end">
+      </ion-buttons>
+        <ion-buttons slot="end">
        
         <ion-button color="light" fill="outline" (click)="prosesLogout()" routerDirection="root"><ion-icon slot="end" name="log-out"></ion-icon></ion-button>
       </ion-buttons>
       <ion-buttons slot="primary">
-       
-        <ion-button  color="light" fill="outline" (click)="bukaKeranjang()" routerDirection="root"><ion-badge *ngIf="cart.length > 0" >{{cart.length}}</ion-badge>
+        <ion-button color="light" fill="outline" (click)="updateprofile(nik ++ nama_user ++alamat)" routerDirection="root"><ion-icon slot="end" name="person"></ion-icon></ion-button>
+        <ion-button  color="light" fill="outline" (click)="openCart()" routerDirection="root"><ion-badge color="danger" *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
         <ion-icon name="cart" slot="icon-only"></ion-icon>
         </ion-button>
       </ion-buttons>
@@ -26,7 +28,7 @@
           <ion-slide><img src="assets/img/bg/2.jpg"></ion-slide>
         </ion-slides>
     <ion-list >
-      <ion-card *ngFor='let item of barang.databarang'>    
+      <ion-card *ngFor='let item of barang.databarang '>    
         <ion-grid>
           <ion-row>          
             <ion-col col-5> 
