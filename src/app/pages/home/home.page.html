@@ -2,31 +2,37 @@
     <ion-toolbar color="primary">
       <ion-title></ion-title>
       <ion-buttons slot="start">
-  <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-      <ion-buttons>
-        <ion-button color="success"  routerLink="/registerkurir" routerDirection="forward"><ion-text color="light">Kurir</ion-text><ion-icon color="light"slot="end" name="bicycle"></ion-icon></ion-button>
-        <ion-button color="dark"  routerLink="/registertoko" routerDirection="forward"  > Toko <ion-icon name="appstore" ></ion-icon></ion-button>
-      </ion-buttons>
-        <ion-buttons slot="end">
+          <ion-menu-button></ion-menu-button>
+          <ion-button icon-only *ngIf= "!isSearchbarOpened" (click)="isSearchbarOpened=true">
+            <ion-icon name="search"></ion-icon>
+            </ion-button>   
+            <ion-button color="success" fill="solid"  routerLink="/registerkurir" routerDirection="forward"><ion-icon  name="bicycle"></ion-icon></ion-button>
+            <ion-button color="dark"    fill="solid" routerLink="/registertoko" routerDirection="forward"  > <ion-icon name="basket" ></ion-icon></ion-button>
+          </ion-buttons>
+     
        
-        <ion-button color="light" fill="outline" (click)="prosesLogout()" routerDirection="root"><ion-icon slot="end" name="log-out"></ion-icon></ion-button>
-      </ion-buttons>
-      <ion-buttons slot="primary">
-        <ion-button color="light" fill="outline" (click)="updateprofile(nik ++ nama_user ++alamat)" routerDirection="root"><ion-icon slot="end" name="person"></ion-icon></ion-button>
-        <ion-button  color="light" fill="outline" (click)="openCart()" routerDirection="root"><ion-badge color="danger" *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
-        <ion-icon name="cart" slot="icon-only"></ion-icon>
+      <ion-buttons slot="end">
+        <ion-button color="primary" fill="outline" (click)="updateprofile(nik,nama_user,alamat,kota,kode_pos,jenis_kelamin,tempat_lahir,tanggal_lahir,kontak,password,confirm_password)" routerDirection="root"><ion-icon color="light" slot="end" name="person"></ion-icon></ion-button>
+        <ion-button  color="primary" fill="outline" (click)="openCart()" routerDirection="root"><ion-badge color="danger" *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
+          <ion-icon color="light" name="cart" slot="icon-only"></ion-icon>
+          
         </ion-button>
+        <ion-button color="primary" fill="outline" (click)="prosesLogout()" routerDirection="root"><ion-icon color="light" slot="end" name="log-out"></ion-icon></ion-button>
       </ion-buttons>
       
     </ion-toolbar>
   </ion-header>
 
   <ion-content padding>
-      <ion-slides autoplay="5" loop="true" speed="5" pager="true">
-          <ion-slide><img src="assets/img/bg/1.png"></ion-slide>
-          <ion-slide><img src="assets/img/bg/2.jpg"></ion-slide>
-        </ion-slides>
+      <ion-searchbar  [(ngModel)]="searchTerm"
+      (ionChange)="setFilteredItems()" *ngIf="isSearchbarOpened" showCancelButton="true"  (ionCancel)="isSearchbarOpened=false">
+        
+      </ion-searchbar>
+        <ion-slides pager #mySlider class="slides" (ionSlidesDidLoad)="slidesDidLoad(mySlider)">
+            <ion-slide *ngFor="let number of [1,2]">
+            <img src="/assets/img/bg/{{number}}.jpg" />
+          </ion-slide>
+          </ion-slides>
     <ion-list >
       <ion-card *ngFor='let item of barang.databarang '>    
         <ion-grid>
@@ -43,8 +49,8 @@
                   <small>Stok : {{item.stok}} </small><br>
                   <span class="badge badge-pill badge-success mb-3">Rp.{{item.harga}} </span><br>
                 
-                    <ion-button color="primary"  [routerLink]="['/detilbarang', item.id, item.nama, item.kategori, item.stok,item.harga,item.kondisi,item.satuan,item.gambar]"><ion-icon md="md-cart"></ion-icon> &nbsp; keranjang</ion-button>
-                    <ion-button color="secondary" (click)="addToCart(product)"><ion-icon md="md-pricetags"></ion-icon> &nbsp; Beli</ion-button>
+                    <ion-button color="primary"  [routerLink]="['/detilbarang', item.id, item.nama, item.kategori, item.stok,item.harga,item.kondisi,item.satuan,item.gambar]"><ion-icon name="cart"></ion-icon> &nbsp; keranjang</ion-button>
+                    <ion-button color="secondary" (click)="addToCart(product)"><ion-icon name="pricetags"></ion-icon> &nbsp; Beli</ion-button>
                    
   
                  

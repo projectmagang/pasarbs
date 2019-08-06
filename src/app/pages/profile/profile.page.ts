@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Storage } from '@ionic/storage';
 import { PostProvider } from 'src/app/providers/post-provider';
 
 @Component({
@@ -19,17 +20,19 @@ export class ProfilePage implements OnInit {
   kontak: any;
   password: any;
   confirm_password : any;
+  nik: any;
 
   constructor(
     private router: Router,
     private actRoute: ActivatedRoute,
+    private storage: Storage,
     private postPvdr: PostProvider
 
   ) { }
 
   ngOnInit() {
     this.actRoute.params.subscribe((data: any) =>{
-  		this.id = data.id;
+  		this.nik = data.nik;
   		this.nama_user = data.nama_user;
       this.alamat = data.alamat;
       this.kota = data.kota;
@@ -46,6 +49,7 @@ export class ProfilePage implements OnInit {
   prosesUpdateprofile(){
   	return new Promise(resolve => {
   		let body = {
+        nik : this.nik,
         nama_user : this.nama_user,
         alamat : this.alamat,
         kota : this.kota,
@@ -59,7 +63,8 @@ export class ProfilePage implements OnInit {
   		};
 
   		this.postPvdr.postData(body, 'proses-api.php').subscribe(data => {
-  			this.router.navigate(['/hometoko']);
+        this.storage.clear();
+  			this.router.navigate(['/home']);
   			console.log('OK');
   		});
   	});

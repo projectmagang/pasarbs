@@ -15,6 +15,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit{
+  public searchTerm: string = "";
   cart = [];
   items = [];
   username: any;
@@ -30,7 +31,7 @@ export class HomePage implements OnInit{
   kontak: any;
   password: any;
   nik: any;
-
+  public isSearchbarOpened = false;
   constructor(private http: HttpClient,
               private router: Router,
   	           private postPvdr: PostProvider,
@@ -55,7 +56,6 @@ export class HomePage implements OnInit{
           this.router.navigate(['/login']);
         }
         this.user = res;
-        this.username = this.user.username;
         this.nik = this.user.nik;
         this.nama_user = this.user.nama_user;
         this.alamat = this.user.alamat; 
@@ -87,10 +87,15 @@ export class HomePage implements OnInit{
 openCart() {
   this.router.navigate(['keranjang']);
 }
+slidesDidLoad(slides) {
+  slides.startAutoplay();
+}
 
 updateprofile(nik,nama_user,alamat,kota,kode_pos,jenis_kelamin,tempat_lahir,tanggal_lahir,kontak,password,confirm_password){
   this.router.navigate(['/profile/' + nik + '/' + nama_user + '/' + alamat + '/' + kota + '/'+ kode_pos + '/'+jenis_kelamin+'/'+tempat_lahir+'/'+tanggal_lahir+'/'+kontak+'/'+password+'/'+confirm_password]);
 }
-
+setFilteredItems() {
+  this.barang.databarang = this.barang.filterItems(this.searchTerm);
+}
 
 }

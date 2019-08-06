@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'hometoko', loadChildren: './pages/hometoko/hometoko.module#HometokoPageModule' },
   { path: 'tambahbarang/:id/:nama/:kategori/:stok/:harga/:kondisi/:satuan/:gambar', loadChildren: './pages/tambahbarang/tambahbarang.module#TambahbarangPageModule' },
   { path: 'tambahbarang', loadChildren: './pages/tambahbarang/tambahbarang.module#TambahbarangPageModule' },
-  { path: 'profile/:id/:nama_user/:alamat/:kota/:kode_pos/:jenis_kelamin/:tempat_lahir/:tanggal_lahir/:kontak/:password/:confirm_password', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
+  { path: 'profile/:nik/:nama_user/:alamat/:kota/:kode_pos/:jenis_kelamin/:tempat_lahir/:tanggal_lahir/:kontak/:password/:confirm_password', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
 ];
 
 @NgModule({

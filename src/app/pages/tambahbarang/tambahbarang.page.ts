@@ -60,6 +60,7 @@ export class TambahbarangPage implements OnInit {
   updateproduk(){
   	return new Promise(resolve => {
   		let body = {
+        id : this.id,
         nama : this.nama,
         kategori : this.kategori,
         stok : this.stok,

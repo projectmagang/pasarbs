@@ -184,7 +184,7 @@
 		tanggal_lahir = '$postjson[tanggal_lahir]',
     kontak = '$postjson[kontak]',
     password = '$postjson[password]',
-    id='$postjson[id]' WHERE id='$postjson[id]'");
+    nik='$postjson[nik]' WHERE nik='$postjson[nik]'");
 
   	if($query) $result = json_encode(array('success'=>true, 'result'=>'success'));
   	else $result = json_encode(array('success'=>false, 'result'=>'error'));

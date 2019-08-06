@@ -61,5 +61,9 @@ export class GetProvider {
       this.cart.push(product);
     }
  
-
+    filterItems(searchTerm) {
+      return this.databarang.filter(item => {
+        return item.nama.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+      });
+    }
 }
