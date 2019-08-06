@@ -24,8 +24,7 @@
   </ion-header>
 
   <ion-content padding>
-      <ion-searchbar  [(ngModel)]="searchTerm"
-      (ionChange)="setFilteredItems()" *ngIf="isSearchbarOpened" showCancelButton="true"  (ionCancel)="isSearchbarOpened=false">
+      <ion-searchbar  [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()" *ngIf="isSearchbarOpened" showCancelButton="true"  (ionCancel)="isSearchbarOpened=false">
         
       </ion-searchbar>
         <ion-slides pager #mySlider class="slides" (ionSlidesDidLoad)="slidesDidLoad(mySlider)">

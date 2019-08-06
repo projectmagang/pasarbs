@@ -9,13 +9,14 @@ import { Router, NavigationExtras} from '@angular/router';
 import { ModalController } from '@ionic/angular';
 
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit{
-  public searchTerm: string = "";
+  searchTerm : any="";
   cart = [];
   items = [];
   username: any;
@@ -33,6 +34,7 @@ export class HomePage implements OnInit{
   nik: any;
   public isSearchbarOpened = false;
   constructor(private http: HttpClient,
+    public navCtrl: NavController,
               private router: Router,
   	           private postPvdr: PostProvider,
               private storage: Storage,
@@ -40,16 +42,17 @@ export class HomePage implements OnInit{
               private modalController: ModalController,
               public toastCtrl: ToastController
     ) {
-
+      this.barang.loadData();
       console.log();
   }
   ngOnInit() {
-    this.barang.loadData();
     this.items = this.barang.getProducts();
     this.cart = this.barang.getCart();
   }
   
-
+  ionViewDidLoad(){
+    this.setFilteredItems();
+  }
     ionViewWillEnter() {
       this.storage.get('session_storage').then((res) => {
         if(res == null){
@@ -95,7 +98,9 @@ updateprofile(nik,nama_user,alamat,kota,kode_pos,jenis_kelamin,tempat_lahir,tang
   this.router.navigate(['/profile/' + nik + '/' + nama_user + '/' + alamat + '/' + kota + '/'+ kode_pos + '/'+jenis_kelamin+'/'+tempat_lahir+'/'+tanggal_lahir+'/'+kontak+'/'+password+'/'+confirm_password]);
 }
 setFilteredItems() {
+ 
   this.barang.databarang = this.barang.filterItems(this.searchTerm);
+
 }
 
 }
