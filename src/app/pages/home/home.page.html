@@ -6,7 +6,7 @@
           <ion-button icon-only *ngIf= "!isSearchbarOpened" (click)="isSearchbarOpened=true">
             <ion-icon name="search"></ion-icon>
             </ion-button>   
-            <ion-button color="success" fill="solid"  routerLink="/registerkurir" routerDirection="forward"><ion-icon  name="bicycle"></ion-icon></ion-button>
+            <ion-button color="success" fill="solid"  (click)="registerkurir()" routerDirection="forward"><ion-icon  name="bicycle"></ion-icon></ion-button>
             <ion-button color="dark"    fill="solid" routerLink="/registertoko" routerDirection="forward"  > <ion-icon name="basket" ></ion-icon></ion-button>
           </ion-buttons>
      

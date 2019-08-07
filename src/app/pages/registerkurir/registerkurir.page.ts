@@ -38,9 +38,7 @@ export class RegisterkurirPage implements OnInit {
         this.router.navigate(['/login']);
 
       }
-       else if(this.nik  != this.id_user){
-        this.router.navigate(['/home']);
-      }
+
       this.user = res;
       this.username = this.user.username;
       this.nik = this.user.nik;
@@ -56,7 +54,6 @@ export class RegisterkurirPage implements OnInit {
   
   async prosesregisterkurir(){
     // validation done
-  this.id_kurir2=this.id_kurir;
   
   this.random = Math.floor(1000 + Math.random() * 9000);
     this.id_kurir = this.random;
@@ -91,7 +88,7 @@ else{
         nama: this.nama,
         kendaraan : this.kendaraan,
         nopol : this.nopol,
-        id_kurir: this.id_kurir2,
+        id_kurir: this.id_kurir,
         id_user : this.nik,
         aksi: 'registerkurir'
       };

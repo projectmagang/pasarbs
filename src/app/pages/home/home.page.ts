@@ -33,6 +33,7 @@ export class HomePage implements OnInit{
   password: any;
   nik: any;
   public isSearchbarOpened = false;
+  id_user: any;
   constructor(private http: HttpClient,
     public navCtrl: NavController,
               private router: Router,
@@ -46,6 +47,7 @@ export class HomePage implements OnInit{
       console.log();
   }
   ngOnInit() {
+    
     this.items = this.barang.getProducts();
     this.cart = this.barang.getCart();
   }
@@ -66,6 +68,7 @@ export class HomePage implements OnInit{
         this.kode_pos =this.user.kode_pos;
         this.jenis_kelamin = this.user.jenis_kelamin;
         this.tempat_lahir = this.user.tempat_lahir;
+        this.id_user = this.barang.datakurir.id_user;
       this.tanggal_lahir = this.user.tanggal_lahir;
       this.kontak = this.user.kontak;
       this.password= this.user.password;
@@ -101,6 +104,14 @@ setFilteredItems() {
  
   this.barang.databarang = this.barang.filterItems(this.searchTerm);
 
+}
+registerkurir() {
+ if( this.nik = this.barang ){
+  this.router.navigate(['home']);
+ }
+ else{
+  this.router.navigate(['registerkurir']);
+ }
 }
 
 }
