@@ -31,7 +31,7 @@ import { FilePath } from '@ionic-native/file-path/ngx';
     HttpModule,
     FormsModule,
     IonicStorageModule.forRoot(),
-    IonicModule.forRoot(),
+    IonicModule.forRoot({_forceStatusbarPadding: false }),
     AppRoutingModule,
     NgbModule.forRoot()
   ],
