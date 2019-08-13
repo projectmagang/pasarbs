@@ -32,33 +32,81 @@
             <img src="/assets/img/bg/{{number}}.jpg" />
           </ion-slide>
           </ion-slides>
-    <ion-list >
-      <ion-card *ngFor='let item of barang.databarang '>    
-        <ion-grid>
-          <ion-row>          
-            <ion-col col-5> 
-              <ion-card-content>
-                <img src="assets/img/produk/{{item.gambar}}">              
-              </ion-card-content>
-            </ion-col>
-            <ion-col col-7>
-              <ion-card-content>
-                <div >
-                  <h5 class="card-title mb-1">{{item.nama}}</h5>
-                  <small>Stok : {{item.stok}} </small><br>
-                  <span class="badge badge-pill badge-success mb-3">Rp.{{item.harga}} </span><br>
+<ion-list>
+    <ion-row no-padding class="category-banner">
+        <ion-col >
+        sayur
+        </ion-col>
+      </ion-row>
+            <ion-slides [options]="sliderConfig">
+              
+              <ion-slide *ngFor="let kategori of barang.datasayur">
                 
-                    <ion-button color="primary"  [routerLink]="['/detilbarang', item.id, item.nama, item.kategori, item.stok,item.harga,item.kondisi,item.satuan,item.gambar]"><ion-icon name="cart"></ion-icon> &nbsp; keranjang</ion-button>
-                    <ion-button color="secondary" (click)="addToCart(product)"><ion-icon name="pricetags"></ion-icon> &nbsp; Beli</ion-button>
+                  <ion-card>
+                    <ion-card-header>
+        
+                      <ion-card-content>
+                        <div>
+                        <img src="assets/img/produk/{{kategori.gambar}}"style="width: 180px; height: 120px;">
+                        <br>
+                        <h1 class="card-title ">{{kategori.nama}}</h1>
+                Stok : {{kategori.stok}} <br>
+
+                <span class="badge  badge-success ">Rp.{{kategori.harga}} </span><br>
+                <br>
+
+              </div>
+                        <ion-button  expand="full" (click)="addToCart(product)"><ion-icon name="cart"></ion-icon> &nbsp; keranjang</ion-button>
+                       
+        
+                        <ion-button color="success" expand="full"[routerLink]="['/detilbarang', kategori.id, kategori.nama, kategori.kategori, kategori.stok,kategori.harga,kategori.kondisi,kategori.satuan,kategori.gambar]"><ion-icon name="pricetags"></ion-icon> &nbsp; Beli</ion-button>
                    
-  
-                 
-  
-                </div>         
-              </ion-card-content>                    
-            </ion-col>          
-          </ion-row>        
-        </ion-grid>      
-      </ion-card>
-    </ion-list>  
+                      </ion-card-content>
+                    </ion-card-header>
+                  </ion-card>
+               
+              </ion-slide>
+            </ion-slides>
+
+            <ion-row no-padding class="category-banner">
+                <ion-col >
+                buah
+                </ion-col>
+              </ion-row>
+                    <ion-slides [options]="sliderConfig">
+                      
+                      <ion-slide *ngFor="let kategori of barang.databuah">
+                        
+                          <ion-card>
+                            <ion-card-header>
+      
+                
+                              <ion-card-content>
+                                
+                                <div>
+                                    <img src="assets/img/produk/{{kategori.gambar}}" style="width: 180px; height: 120px;">
+                                    <br>
+                                    <h1 class="card-title ">{{kategori.nama}}</h1>
+                            Stok : {{kategori.stok}} <br>
+                              <span class="badge  badge-success ">Rp.{{kategori.harga}} </span><br>
+                              <br>
+
+                            </div>
+                
+                                <ion-button  expand="full" (click)="addToCart(product)"><ion-icon name="cart"></ion-icon> &nbsp; keranjang</ion-button>
+                               
+                
+                                <ion-button color="success" expand="full"[routerLink]="['/detilbarang', kategori.id, kategori.nama, kategori.kategori, kategori.stok,kategori.harga,kategori.kondisi,kategori.satuan,kategori.gambar]"><ion-icon name="pricetags"></ion-icon> &nbsp; Beli</ion-button>
+                   
+                              </ion-card-content>
+                            </ion-card-header>
+                          </ion-card>
+                       
+                      </ion-slide>
+                    </ion-slides>
+
+
+            </ion-list>
+    
+       
   </ion-content>

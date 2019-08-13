@@ -5,7 +5,7 @@ import { PostProvider } from 'src/app/providers/post-provider';
 import { ToastController, NavController, NavParams } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { GetProvider } from 'src/app/providers/get-provider';
-import { Router, NavigationExtras} from '@angular/router';
+import { Router} from '@angular/router';
 import { ModalController } from '@ionic/angular';
 
 
@@ -34,6 +34,11 @@ export class HomePage implements OnInit{
   nik: any;
   public isSearchbarOpened = false;
   id_user: any;
+  sliderConfig = {
+    slidesPerView: 1.3,
+    spaceBetween: 5,
+    centeredSlides: true
+  };
   constructor(private http: HttpClient,
     public navCtrl: NavController,
               private router: Router,
@@ -102,7 +107,8 @@ updateprofile(nik,nama_user,alamat,kota,kode_pos,jenis_kelamin,tempat_lahir,tang
 }
 setFilteredItems() {
  
-  this.barang.databarang = this.barang.filterItems(this.searchTerm);
+  this.barang.databuah = this.barang.filterItems(this.searchTerm);
+  this.barang.datasayur = this.barang.filterItems(this.searchTerm);
 
 }
 registerkurir() {
