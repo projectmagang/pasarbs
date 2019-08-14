@@ -112,12 +112,10 @@ setFilteredItems() {
 
 }
 registerkurir() {
- if( this.nik = this.barang ){
-  this.router.navigate(['home']);
- }
- else{
   this.router.navigate(['registerkurir']);
- }
+}
+home() {
+  this.router.navigate(['home']);
 }
 
 }
