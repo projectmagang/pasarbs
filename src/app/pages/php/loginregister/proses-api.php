@@ -1,19 +1,13 @@
 <?php
-
   header('Access-Control-Allow-Origin: *');
   header("Access-Control-Allow-Credentials: true");
   header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
   header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
   header("Content-Type: application/json; charset=utf-8");
-
   include "library/config.php";
-  
   $postjson = json_decode(file_get_contents('php://input'), true);
   $today    = date('Y-m-d');
 
-
-// tabel user
-//-------------------------------------------------------------------------------------------------
    if($postjson['aksi']=="login"){
     $query = mysqli_query($mysqli, "SELECT * FROM user WHERE username='$postjson[username]' AND password='$postjson[password]'");
     $check = mysqli_num_rows($query);
@@ -173,6 +167,7 @@
   	echo $result;
 
   }
+  
   elseif($postjson['aksi']=='updateprofile'){
   	$query = mysqli_query($mysqli, "UPDATE user SET 
   	nama_user = '$postjson[nama_user]',

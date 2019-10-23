@@ -39,7 +39,7 @@
       </ion-row>
             <ion-slides [options]="sliderConfig">
               
-              <ion-slide *ngFor="let kategori of barang.datasayur">
+              <ion-slide *ngFor="let kategori of barang.datasayur;let i=index">
                 
                   <ion-card>
                     <ion-card-header>
@@ -55,10 +55,14 @@
                 <br>
 
               </div>
-                        <ion-button  expand="full" (click)="addToCart(product)"><ion-icon name="cart"></ion-icon> &nbsp; keranjang</ion-button>
+                        <ion-button  expand="full" (click)="addToCart(product)"><ion-icon name="cart">
+                          
+                        </ion-icon> &nbsp; keranjang</ion-button>
                        
         
-                        <ion-button color="success" expand="full"[routerLink]="['/detilbarang', kategori.id, kategori.nama, kategori.kategori, kategori.stok,kategori.harga,kategori.kondisi,kategori.satuan,kategori.gambar]"><ion-icon name="pricetags"></ion-icon> &nbsp; Beli</ion-button>
+                        <ion-button color="success" expand="full"[routerLink]="['/detilbarang', kategori.id, kategori.nama, 
+                        kategori.kategori, kategori.stok,kategori.harga,kategori.kondisi,
+                        kategori.satuan,kategori.gambar]"><ion-icon name="pricetags"></ion-icon> &nbsp; Beli</ion-button>
                    
                       </ion-card-content>
                     </ion-card-header>
@@ -74,7 +78,7 @@
               </ion-row>
                     <ion-slides [options]="sliderConfig">
                       
-                      <ion-slide *ngFor="let kategori of barang.databuah">
+                      <ion-slide *ngFor="let kategori of barang.databuah;let i=index">
                         
                           <ion-card>
                             <ion-card-header>
@@ -92,7 +96,7 @@
 
                             </div>
                 
-                                <ion-button  expand="full" (click)="addToCart(product)"><ion-icon name="cart"></ion-icon> &nbsp; keranjang</ion-button>
+                                <ion-button  expand="full" (click)="addToCart(i)"><ion-icon name="cart"></ion-icon> &nbsp; keranjang</ion-button>
                                
                 
                                 <ion-button color="success" expand="full"[routerLink]="['/detilbarang', kategori.id, kategori.nama, kategori.kategori, kategori.stok,kategori.harga,kategori.kondisi,kategori.satuan,kategori.gambar]"><ion-icon name="pricetags"></ion-icon> &nbsp; Beli</ion-button>

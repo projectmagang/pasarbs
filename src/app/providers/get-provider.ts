@@ -10,18 +10,15 @@ export class GetProvider {
   public databuah : any;  
   public logg: string="";
   id: any;
-  datakurir: any;
-
   constructor(public http: Http) {
     console.log('terkoneksi');    
   }
-
   async loadData(){
     let type = "application/json; charset=UTF-8";
     let headers = new Headers({'Content-Type' : type});
     let options = new RequestOptions({ headers:headers});
     // await this.http.get("http://192.168.1.12/pasarbs/src/app/pages/php/barang/kategori_sayur.php", options)
-    await this.http.get("https://192.168.1.10/pasarbs/src/app/pages/php/barang/kategori_sayur.php", options)
+    await this.http.get("https://nyotojoyo.com/php/barang/kategori_sayur.php", options)
     .map (res => res.json())
     .subscribe(data=>{
       this.datasayur = data;
@@ -29,7 +26,7 @@ export class GetProvider {
       console.log(err._body);
     });
    // await this.http.get("http://192.168.1.12/pasarbs/src/app/pages/php/barang/kategori_buah.php", options)
-    await this.http.get("https://192.168.1.10/pasarbs/src/app/pages/php/barang/kategori_buah.php", options)
+    await this.http.get("https://nyotojoyo.com/php/barang/kategori_buah.php", options)
     .map (res => res.json())
     .subscribe(data=>{
       this.databuah = data;
@@ -37,21 +34,14 @@ export class GetProvider {
       console.log(err._body);
     });    
     //await this.http.get("http://192.168.1.12/pasarbs/src/app/pages/php/barang/databarang.php", options)
-    await this.http.get("https://192.168.1.10/pasarbs/src/app/pages/php/barang/databarang.php", options)
+    await this.http.get("https://nyotojoyo.com/php/barang/databarang.php", options)
     .map (res => res.json())
     .subscribe(data=>{
       this.databarang = data;
     },err=>{
       console.log(err._body);
     });
-   
-    await this.http.get("https://192.168.1.10/pasarbs/src/app/pages/php/barang/datakurir.php", options)
-    .map (res => res.json())
-    .subscribe(data=>{
-      this.datakurir = data;
-    },err=>{
-      console.log(err._body);
-    });
+  
     }
     private cart = [];
  
@@ -63,13 +53,10 @@ export class GetProvider {
     getCart() {
       return this.cart;
     }
-   
-    addProduct(product) {
-      this.cart.push(product);
+    addProduct(i) {
+      this.cart.push(i);
     }
- 
     filterItems(searchTerm){
- 
       return this.databarang.filter((item) => {
            return item.nama.toLowerCase().includes(searchTerm.toLowerCase());
        });  

@@ -7,9 +7,6 @@ import { Storage } from '@ionic/storage';
 import { GetProvider } from 'src/app/providers/get-provider';
 import { Router} from '@angular/router';
 import { ModalController } from '@ionic/angular';
-
-
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -47,16 +44,15 @@ export class HomePage implements OnInit{
               private barang: GetProvider,
               private modalController: ModalController,
               public toastCtrl: ToastController
-    ) {
+    ) 
+    {
       this.barang.loadData();
       console.log();
   }
   ngOnInit() {
-    
     this.items = this.barang.getProducts();
     this.cart = this.barang.getCart();
   }
-  
   ionViewDidLoad(){
     this.setFilteredItems();
   }
@@ -73,7 +69,7 @@ export class HomePage implements OnInit{
         this.kode_pos =this.user.kode_pos;
         this.jenis_kelamin = this.user.jenis_kelamin;
         this.tempat_lahir = this.user.tempat_lahir;
-        this.id_user = this.barang.datakurir.id_user;
+        this.id_user = this.user.id_user;
       this.tanggal_lahir = this.user.tanggal_lahir;
       this.kontak = this.user.kontak;
       this.password= this.user.password;
@@ -91,8 +87,8 @@ export class HomePage implements OnInit{
   });
    toast.present();
  }
- addToCart(product) {
-  this.barang.addProduct(product);
+ addToCart(i) {
+  this.barang.addProduct(i);
 }
 
 openCart() {

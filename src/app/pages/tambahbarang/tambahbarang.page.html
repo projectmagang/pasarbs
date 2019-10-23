@@ -1,21 +1,23 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="dark">
       <ion-title><ion-text color="light">Tambah Produk</ion-text></ion-title>
       
       <ion-buttons slot="start">
-
-    
-          <ion-button routerLink="/hometoko" routerDirection="backward">
-            <ion-icon color="light" slot="end" name="arrow-round-back"></ion-icon>
-          </ion-button>
-      </ion-buttons>
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
     </ion-toolbar>
   </ion-header>
   
   <ion-content padding>
     <ion-card>
       <ion-card-content>
-  
+  <ion-item *ngIf="id>=1" >
+    <div>
+      <br>
+      <ion-thumbnail class="thumbnail" > <img src="assets/img/produk/{{gambar}}"></ion-thumbnail>
+    <br>
+    </div>
+  </ion-item>
     <ion-item>
       <ion-label position="stacked"> Nama Produk </ion-label>
       <ion-input type="text" [(ngModel)]="nama"></ion-input>
@@ -49,8 +51,10 @@
                 <ion-textarea [(ngModel)]="gambar"></ion-textarea>
               </ion-item>
               </ion-card-content>
-              <ion-button expand="block" padding color="primary" *ngIf="!id" (click)="tambahproduk()" fill="outline">Simpan Produk</ion-button>
-              <ion-button expand="block" padding color="tertiary" *ngIf="id>=1" (click)="updateproduk()" fill="outline">Update</ion-button>
+              <ion-button expand="block" padding color="dark" *ngIf="!id" 
+              (click)="tambahproduk()" >Simpan Produk</ion-button>
+              <ion-button expand="block" padding color="dark" *ngIf="id>=1" 
+                (click)="updateproduk()" >Update</ion-button>
             <br>
             </ion-card>
   

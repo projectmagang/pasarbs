@@ -1,8 +1,8 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="dark">
     <ion-title><ion-text color="light">Produk Anda</ion-text></ion-title>
     <ion-buttons slot="end">
-    	<ion-button color="primary" fill="outline"  (click)="tambahbarang()">
+    	<ion-button color="dark" fill="outline"  (click)="tambahbarang()">
     	
     		<ion-icon color="light" name="add-circle"></ion-icon>
     	</ion-button>
@@ -12,6 +12,7 @@
 </ion-header>
 
 <ion-content>
+	<ion-item>*Swipe Kekanan Dan Kekiri Untuk Menampilkan Opsi</ion-item>
   <ion-card *ngFor="let toko of toko2">
 		<ion-item-sliding >
 		    <ion-item-options side="start">
@@ -19,12 +20,14 @@
 		    </ion-item-options>
 
 		    <ion-item>
-          <ion-thumbnail slot="start"> <img src="assets/img/produk/{{toko.gambar}}"></ion-thumbnail>
+				
+          <ion-avatar slot="start"> <img src="assets/img/produk/{{toko.gambar}}"></ion-avatar>
 			  <ion-label>{{toko.nama}}</ion-label>
 		    </ion-item>
 
 		    <ion-item-options side="end">
-		      <ion-item-option (click)="updatebarang(toko.id,toko.nama,toko.kategori,toko.stok,toko.harga,toko.kondisi,toko.satuan,toko.gambar)">Update</ion-item-option>
+			  <ion-item-option color="dark"(click)="updatebarang(toko.id,toko.nama,toko.kategori,
+			  toko.stok,toko.harga,toko.kondisi,toko.satuan,toko.gambar)">Update</ion-item-option>
 
 		    </ion-item-options>
 		</ion-item-sliding>

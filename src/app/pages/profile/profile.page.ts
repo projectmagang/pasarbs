@@ -61,14 +61,12 @@ export class ProfilePage implements OnInit {
         password : this.password,
         aksi : 'updateprofile'
   		};
-
   		this.postPvdr.postData(body, 'proses-api.php').subscribe(data => {
         this.storage.clear();
   			this.router.navigate(['/home']);
   			console.log('OK');
   		});
   	});
-
   }
   home() {
     this.router.navigate(['home']);

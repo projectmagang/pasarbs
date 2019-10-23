@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { PostProvider } from 'src/app/providers/post-provider';
 import { ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
-
 @Component({
   selector: 'app-hometoko',
   templateUrl: './hometoko.page.html',
@@ -19,7 +18,6 @@ export class HometokoPage implements OnInit {
   	private postPvdr: PostProvider,
     private storage: Storage,
     public toastCtrl: ToastController) { }
-
   ngOnInit() {
   }
   ionViewWillEnter(){
@@ -31,7 +29,6 @@ export class HometokoPage implements OnInit {
       this.username = this.user.username;
       console.log(res);
     });
-    
   	this.toko2 = [];
   	this.loadbarangtoko();
   }
@@ -39,9 +36,7 @@ export class HometokoPage implements OnInit {
   	return new Promise(resolve => {
   		let body = {
   			aksi : 'getdata',
-
   		};
-
   		this.postPvdr.postData(body, 'proses-api.php').subscribe(data => {
   			for(let toko of data.result) {
   				this.toko2.push(toko);
@@ -51,19 +46,17 @@ export class HometokoPage implements OnInit {
   	});
   }
   hapusbarang(id){
-
   	let body = {
   			aksi : 'hapusbarang',
   			id : id
   		};
-
   		this.postPvdr.postData(body, 'proses-api.php').subscribe(data => {
   			this.ionViewWillEnter();
   		});
-
   }
   updatebarang(id,nama,kategori,stok,harga,kondisi,satuan,gambar){
-  	this.router.navigate(['/tambahbarang/' + id + '/' + nama + '/' + kategori + '/' + stok + '/'+ harga + '/'+kondisi+'/'+satuan+'/'+gambar]);
+    this.router.navigate(['/tambahbarang/' + id + '/' + nama + '/' + kategori 
+    + '/' + stok + '/'+ harga + '/'+kondisi+'/'+satuan+'/'+gambar]);
   }
   tambahbarang(){
   	this.router.navigate(['/tambahbarang']);
